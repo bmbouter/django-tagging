@@ -458,6 +458,7 @@ class Tag(models.Model):
     A tag.
     """
     name = models.CharField(_('name'), max_length=50, unique=True, db_index=True)
+    icon_path = models.CharField(_('icon'), max_length=50)
 
     objects = TagManager()
 
