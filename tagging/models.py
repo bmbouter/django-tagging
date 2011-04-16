@@ -17,6 +17,8 @@ from tagging import settings
 from tagging.utils import calculate_cloud, get_tag_list, get_queryset_and_model, parse_tag_input
 from tagging.utils import LOGARITHMIC
 
+from isthespot.models import Layer
+
 qn = connection.ops.quote_name
 
 ############
@@ -459,6 +461,7 @@ class Tag(models.Model):
     """
     name = models.CharField(_('name'), max_length=50, unique=True, db_index=True)
     icon_path = models.CharField(_('icon path'), max_length=50)
+    layer = models.ForeignKey(_(u'layer'), 'Layer')
 
     objects = TagManager()
 
